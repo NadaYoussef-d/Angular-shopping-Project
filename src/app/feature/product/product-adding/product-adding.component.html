@@ -1,0 +1,144 @@
+<div class=" container">
+    <form #myForm="ngForm" class="add-product" >
+        <div class="add-product__images slider">
+            <div class="add-product__image-actions">
+                <div class="add-product__image-action">
+                    <a href="#"><i class="fas fa-plus-square"></i></a>
+                    <a href="#"><i class="fas fa-edit"></i></a>
+                    <a href="#"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </div>
+            <div class="slider__items">
+                <div class="slider__item active" style="background-image: url(assets/images/products/product-grey-7.jpg)"></div>
+                <div class="slider__item" style="background-image: url(assets/images/products/product-grey-7.jpg)"></div>
+                <div class="slider__item" style="background-image: url(assets/images/products/product-grey-7.jpg)"></div>
+            </div>
+            <div class="slider__indicators">
+                <span class="slider__indicator active"></span>
+                <span class="slider__indicator"></span>
+                <span class="slider__indicator"></span>
+            </div>
+        </div>  
+        <div class="add-product__data">
+            <div class="form-controls">
+                <section class="tabs">
+                    <div class="tabs__headers">
+                        <div class="tabs__header active">
+                            English
+                        </div>
+                        <div class="tabs__header">
+                            Arabic
+                        </div>
+                    </div>
+                    <div class="tabs__bodies">
+                        <div class="tabs__body active">
+                            <div class="form-group invalid">
+                                <label for="">Name</label>
+                                <!-- <input #textName  [value] = "product.data[0].name" (keyup)= "product?.data[0].name =textName.value" class="form-control" type="text" name="txtName" id="">  -->
+                                <!-- //Two way binding -->
+                                <input   [(ngModel)] = "product.data[0].name"  class="form-control" type="text" name="txtName" id=""> 
+                                <!-- //Two way binding by( banana in the box) -->
+                            </div>
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea #txtDescription= "ngModel" ngModel class="form-control" name="txtDescription" id="" cols="30" rows="4"></textarea>
+                                 <!-- //give name="" the same after # -->
+                            </div>
+                        </div>
+                        <div class="tabs__body ">
+                            <div class="form-group invalid">
+                                <label for="">Name</label>
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea class="form-control" name="" id="" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="form-group">
+                    <label for="">Price</label>
+                    <input ngModel class="form-control" type="text" name="txtPrice" id="">
+                </div>
+                <div class="add-product__discount">
+                    <div class="form-group">
+                        <label for="">Satus</label>
+                        <div class="form-group__radios">
+                            <div  class="form-group__radio"><input ngModel type="radio" value="1" name="radioPayment" id=""><span>On Sale</span></div>
+                            <div  class="form-group__radio"><input ngModel type="radio" value="2" name="radioPayment" id=""><span>Not On Sale</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Discount</label>
+                        <input ngModel class="form-control" type="text" name="txtDiscount" id="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Payment Types</label>
+                    <div class="form-group__checkboxs">
+                        <div class="form-group__checkbox" *ngFor ="let paymentType of paymentTypes; let i = index">
+                            <input ngModel type="checkbox" [name]="'check_' + i " [value]="paymentType.id" id="">
+                            <span> {{paymentType.name}}</span></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Category</label>
+                    <select ngModel class="form-control" name="ddlCategory" id="">
+                        <option value="1">Arts & Crafts</option>
+                        <option value="2">Automotive</option>
+                        <option value="3">Baby</option>
+                        <option value="4">Books</option>
+                        <option value="5">Eletronics</option>
+                        <option value="6">Women's Fashion</option>
+                        <option value="7">Men's Fashion</option>
+                        <option value="8">Health & Household</option>
+                        <option value="8">Home & Kitchen</option>
+                        <option value="9">Military Accessories</option>
+                        <option value="10">Movies & Television</option>
+                        <option value="11">Sports & Outdoors</option>
+                        <option value="12">Tools & Home Improvement</option>
+                        <option value="13">Toys & Games</option>
+                    </select>
+                </div>
+
+                <div class="taged-textbox form-group">
+                    <label class="taged-textbox__lable" for="">Tags</label>
+                    <div class="taged-textbox__data">
+                        <div class="taged-textbox__tags">
+                            <div class="taged-textbox__tag"><span>tag1</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag2</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag3</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag4</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag5</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag6</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag7</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag8</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag9</span><a href="#" class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                            <div class="taged-textbox__tag"><span>tag10</span><a class="taged-textbox__remove"><i
+                                        class="fas fa-times"></i></a></div>
+                        </div>
+                        <div class="taged-textbox__clear">
+                            <a href="#"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+                    <input class="taged-textbox__textbox form-control" type="text" name="" id="">
+                </div>
+                <div class="add-product__actions">
+                    <button  class="btn btn--gray">Cancel</button>
+                    <a  class="btn btn--primary" (click) = "onSubmit(myForm)">Add</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
